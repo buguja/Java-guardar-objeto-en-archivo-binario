@@ -360,21 +360,11 @@ public class Ventana extends JFrame implements ActionListener {
 				){
 					lista= (ListaAlumno) ois.readObject();
 					//lista= ois.readObject();
-				} catch (FileNotFoundException e) {
+				} catch (IOException|ClassNotFoundException e) {
 					// TODO Auto-generated catch block
 					lista= new ListaAlumno();
 					guardarDatos();
-					JOptionPane.showMessageDialog(null, "Archivo no encontrado: " + e.getMessage());
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					lista= new ListaAlumno();
-					guardarDatos();
-					JOptionPane.showMessageDialog(null, "Problema de escritura: " + e.getMessage());
-				} catch (ClassNotFoundException e) {
-					// TODO Auto-generated catch block
-					lista= new ListaAlumno();
-					guardarDatos();
-					JOptionPane.showMessageDialog(null, "Problema de escritura: " + e.getMessage());
+					JOptionPane.showMessageDialog(null, "Problema con archivo: " + e.getMessage());
 				}
 		}
 	}
